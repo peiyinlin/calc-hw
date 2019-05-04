@@ -1,0 +1,126 @@
+    <head>
+        <style>
+           body{
+                background-image: url(./bg.jpg);
+                background-size: 50%;
+                background-repeat: no-repeat;
+                            
+                
+           }
+
+            * {
+                margin: 0;
+                padding: 0;
+                /* box-shadow:-8px -8px 8px -8px rgba(212, 212, 212, 0.5); */
+                
+            }
+
+            .button {
+                width: 100px;
+                height: 100px;
+                font-size: 30;
+                color: rgb(104, 104, 104);
+                background: rgb(241, 241, 241);
+                border: none;
+            }
+            
+            .button:hover{
+                background: rgb(252, 255, 81);
+            }
+
+            .button2 {
+                width: 100px;
+                height: 100px;
+                font-size: 30;
+                color: rgb(255, 255, 255);
+                background: rgb(3, 101, 167);
+                border: none;
+            }
+            .button2:hover{
+                background: rgb(71, 188, 255);
+            }
+
+            .textview {
+                width: 408px;
+                height: 100px;
+                font-family:Microsoft JhengHei;
+                font-size: 30;
+                color: rgb(63, 63, 63);
+                text-align: center;
+                background-color: rgb(255, 239, 219);
+                border: none;
+                overflow: hidden;
+            }
+
+            .top {
+                position: absolute;
+                top: 20%;
+                left: 40%;
+            }
+
+        </style>
+    </head>
+    
+    <body>
+        <div class="top">
+            <form name="form">
+                <input class="textview" name="textview" placeholder="START">
+            </form>
+            <table>
+                <tr>
+                    <td> <input class="button" type="button" value="7" onclick="insert(7)"> </td> 
+                    <td> <input class="button" type="button" value="8" onclick="insert(8)"> </td>
+                    <td> <input class="button" type="button" value="9" onclick="insert(9)"> </td>
+                    <td> <input class="button2" type="button" value="+" onclick="insert('+')"> </td>
+                </tr>
+                <tr>
+                    <td> <input class="button" type="button" value="4" onclick="insert(4)"> </td>
+                    <td> <input class="button" type="button" value="5" onclick="insert(5)"> </td>
+                    <td> <input class="button" type="button" value="6" onclick="insert(6)"> </td>
+                    <td> <input class="button2" type="button" value="-" onclick="insert('-')"> </td>
+                </tr>
+                <tr>
+                    <td> <input class="button" type="button" value="1" onclick="insert(1)"> </td>
+                    <td> <input class="button" type="button" value="2" onclick="insert(2)"> </td>
+                    <td> <input class="button" type="button" value="3" onclick="insert(3)"> </td>
+                    <td> <input class="button2" type="button" value="x" onclick="insert('*')"> </td>
+                </tr>
+                <tr>
+                    <td> <input class="button" type="button" value="▶" onclick="back()"> </td>
+                    <td> <input class="button" type="button" value="0" onclick="insert(0)"> </td>
+                    <td> <input class="button" type="button" value="." onclick="insert('.')"> </td>
+                    <td> <input class="button2" type="button" value="÷" onclick="insert('/')"> </td>
+                </tr>
+                <tr>
+                    <td> <input class="button" type="button" value="C" onclick="clean()"> </td>
+                    <td colspan="3"> <input class="button" style="width: 304;" type="button" value="=" onclick="equal()"> </td>
+                </tr>
+
+            </table>
+        </div>
+
+        <script>
+            function insert(num) {
+                document.form.textview.value = document.form.textview.value + num;
+        
+            }
+
+            function equal() {
+                const all = document.form.textview.value;
+                if (all) {
+                    document.form.textview.value = eval(all);
+
+                }
+            }
+
+            function clean() {
+                document.form.textview.value = "";
+
+            }
+
+            function back() {
+                const all = document.form.textview.value;
+                document.form.textview.value = all.substr(0, all.length - 1);
+            }
+        </script>
+    </body>
